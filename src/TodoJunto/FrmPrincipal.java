@@ -100,6 +100,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 "Registro", "DNI", "Nombre", "Apellido 1", "Apellido 2"
             }
         ));
+        tablaAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaAlumnosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaAlumnos);
 
         txtRegistro.setToolTipText("");
@@ -234,10 +239,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void TablaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        obtenerDatos(tablaAlumnos.getSelectedRow());
-    }
     
     private void obtenerDatos(int fila) {
         txtRegistro.setText(String.valueOf(tablaAlumnos.getValueAt(fila, 0)));
@@ -282,6 +283,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         negocioalumnos.Modificar(this);
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void tablaAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaAlumnosMouseClicked
+        obtenerDatos(tablaAlumnos.getSelectedRow());
+    }//GEN-LAST:event_tablaAlumnosMouseClicked
 
     /**
      * @param args the command line arguments
